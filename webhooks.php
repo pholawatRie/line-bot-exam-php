@@ -19,7 +19,7 @@ if (!is_null($events['events'])) {
 
 			$getMessage = $event['message']['text'];
 
-			if($getMessage = '- 9159'){
+			if($getMessage == "- 9159"){
 
 				$text = "VDN:9159
 VDNNAME:TSC Operation
@@ -35,7 +35,7 @@ SKILL2_PRIOR:-";
 
 			}else {
 
-				$text = "Not found this extension number."
+				$text = "Not found this extension number.";
 			}
 
 			// Get replyToken
