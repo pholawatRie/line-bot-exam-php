@@ -30,12 +30,12 @@ if (!is_null($events['events'])) {
 						        $vdn =  $xmlChildren->VDN;
 								if ($vdn == $restString){
 									$text =  "VDN : " . $vdn 
-											."\r\n VDN Name : " . $xmlChildren->VDNNAME
-											."\r\n Vector : " . $xmlChildren->VECTOR
-											."\r\n Whisper : " . $xmlChildren->WHISPER
-											."\r\n Skill(Vec) : " . $xmlChildren->SKILL1
-											."\r\n Skill(1st) : " . $xmlChildren->FIRSTSKILL
-											."\r\n Skill Priority : " . $xmlChildren->SKILL1_PRIOR;
+											."\r\nVDN Name : " . $xmlChildren->VDNNAME
+											."\r\nVector : " . $xmlChildren->VECTOR
+											."\r\nWhisper : " . $xmlChildren->WHISPER
+											."\r\nSkill(Vec) : " . $xmlChildren->SKILL1
+											."\r\nSkill(1st) : " . $xmlChildren->FIRSTSKILL
+											."\r\nSkill Priority : " . $xmlChildren->SKILL1_PRIOR;
 								}								
 						}
 						if($text==""){
