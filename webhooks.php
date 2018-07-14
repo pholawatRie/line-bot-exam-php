@@ -2,6 +2,8 @@
 
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
+$xml=simplexml_load_file("list_vdn.xml") or die("Error: Cannot create object");
+
 
 $access_token = 'Ybjohp9msZcShKwbVsMSTAeVuHhwUMWxI3saGnBRAgyAyxpE7YpoMGzfQ3VYEFTMwkFZ04xbXWw4vXMi+clNbi3o3HUevgP2vtpuH2gqtmkegi9fdHuTXIIZ9842JgUJoUQH/eOekkBPDqQcsTXv1QdB04t89/1O/w1cDnyilFU=';
 
@@ -19,24 +21,29 @@ if (!is_null($events['events'])) {
 
 			$getMessage = $event['message']['text'];
 
-			if($getMessage == "- 9159"){
+				$subString = substr($getMessage, 0, 4);
+				$restString = substr($getMessage, 4);
 
-				$text = "VDN:9159
-VDNNAME:TSC Operation
-VECTOR:150
-WHISPER:-
-FIRSTSKILL:510
-SECONDSKILL:-
-THIRDSKILL:-
-SKILL1:510
-SKILL1_PRIOR:m
-SKILL2:-
-SKILL2_PRIOR:-";
+					if($subString=="-vdn"){
 
-			}else {
-
-				$text = "Not found this extension number.";
-			}
+						foreach($xml->children() as $xmlChildren) { 
+						        $vdn =  $xmlChildren->VDN;
+								if ($vdn == $restString){
+									$text =  "VDN : " . $vdn . "<br>"
+											."VDN Name : " . $xmlChildren->VDNNAME . "<br>"
+											."Vector : " . $xmlChildren->VECTOR . "<br>"
+											."Whisper : " . $xmlChildren->WHISPER . "<br>"
+											."Skill(Vec) : " . $xmlChildren->SKILL1 . "<br>"
+											."Skill(1st) : " . $xmlChildren->FIRSTSKILL . "<br>"
+											."Skill Priority : " . $xmlChildren->SKILL1_PRIOR;
+								}								
+						}
+						if($text==""){
+							
+							$text = "Not found VDN # :" . $restString;
+			
+						}					
+					}
 
 			// Get replyToken
 			$replyToken = $event['replyToken'];
