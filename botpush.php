@@ -11,7 +11,24 @@ $channelSecret = '75622d12a17683724a9b5e1817ea7573';
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('hello world');
+
+
+
+if($test=='- 9159'){
+
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('9159 is VDN');
+
+}else{
+
+	$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('คิดถึงเมียจัง');
+	
+}
+
+
+
+
+
+
 $response = $bot->pushMessage($replyToken, $textMessageBuilder);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
