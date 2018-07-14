@@ -16,7 +16,28 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$text = $event['message']['text'];
+
+			$getMessage = $event['message']['text'];
+
+			if($getMessage = '- 9159'){
+
+				$text = "VDN:9159
+VDNNAME:TSC Operation
+VECTOR:150
+WHISPER:-
+FIRSTSKILL:510
+SECONDSKILL:-
+THIRDSKILL:-
+SKILL1:510
+SKILL1_PRIOR:m
+SKILL2:-
+SKILL2_PRIOR:-";
+
+			}else {
+
+				$text = "Not found this extension number."
+			}
+
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
