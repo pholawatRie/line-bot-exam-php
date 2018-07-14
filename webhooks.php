@@ -36,12 +36,13 @@ if (!is_null($events['events'])) {
 											."\r\n  Skill(Vec) : " . $xmlChildren->SKILL1
 											."\r\n  Skill(1st) : " . $xmlChildren->FIRSTSKILL
 											."\r\n  Skill Priority : " . $xmlChildren->SKILL1_PRIOR;
+								echo $text;
 								}								
 						}
 						if($text==""){
 							
 							$text = "Not found VDN # :" . $restString;
-			
+			echo $text;
 						}					
 					}
 
