@@ -18,6 +18,8 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
+			// Get replyToken
+			$replyToken = $event['replyToken'];
 
 			$getMessage = $event['message']['text'];
 
@@ -40,12 +42,9 @@ if (!is_null($events['events'])) {
 						}
 						if($text==""){
 							
-							$text = "Not found VDN # :" . $restString;
+							$text = "Not found VDN # :" . $restString ."ReplyTokenID :" . $replyToken;
 						}					
 					}
-
-			// Get replyToken
-			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
