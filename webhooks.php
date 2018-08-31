@@ -45,7 +45,7 @@ if (!is_null($events['events'])) {
 						}
 						if($text==""){
 							
-							$text = "Not found VDN # :" . $restString ." ReplyTokenID :" . $userID;
+							$text = "Not found VDN # :" . $restString ." User Id :" . $userId;
 						}					
 					}
 
