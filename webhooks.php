@@ -17,10 +17,13 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			// Get text sent
+			// Get user ID
+			$userId = $event['source']['userId'];
+			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
+			
+			//Get text sent
 			$getMessage = $event['message']['text'];
 
 				$subString = substr($getMessage, 0, 4);
@@ -42,7 +45,7 @@ if (!is_null($events['events'])) {
 						}
 						if($text==""){
 							
-							$text = "Not found VDN # :" . $restString ." ReplyTokenID :" . $replyToken;
+							$text = "Not found VDN # :" . $restString ." ReplyTokenID :" . $userID;
 						}					
 					}
 
