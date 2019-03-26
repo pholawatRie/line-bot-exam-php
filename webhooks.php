@@ -40,7 +40,8 @@ if (!is_null($events['events'])) {
 											."\r\nWhisper : " . $xmlChildren->WHISPER
 											."\r\nSkill(Vec) : " . $xmlChildren->SKILL1
 											."\r\nSkill(1st) : " . $xmlChildren->FIRSTSKILL
-											."\r\nSkill Priority : " . $xmlChildren->SKILL1_PRIOR;
+											."\r\nSkill Priority : " . $xmlChildren->SKILL1_PRIOR
+											."\r\nHoliday Table : " . $xmlChildren->HOLIDAYTABLE;
 								}								
 						}
 						if($text==""){
